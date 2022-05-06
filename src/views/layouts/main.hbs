@@ -1,12 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>DEVJOBS {{#if title}} - {{title}} {{/if}}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/trix.css">
+    {{#isPage currentUrl '/vacantes/nueva'}}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {{/isPage}}
+    {{> styles}}
 </head>
+
 <body>
-    {{{body}}}
+    {{> sidebars}}
+    {{#isPage currentUrl '/vacantes/nueva'}}
+        <h1>PAGINA ES</h1>
+    {{/isPage}}
+    <div class="nombre-sitio contenedor">
+        <h1>
+            <a href="/">devJobs</a>
+        </h1>
+        {{#if bar}}
+        <div class="buscador">
+            <form action="">
+                <input type="text" class="buscar">
+                <input type="submit" value="Buscar">
+            </form>
+        </div>
+        {{/if}}
+    </div>
+    <header class="site-header contenedor separador">
+        <h2>{{title}}</h2>
+        {{#if tagline}}
+        <p class="tagline">
+            {{tagline}}
+        </p>
+        {{/if}}
+        {{#if button}}
+        <a href="/vacantes/nueva" class="btn btn-azul">Publicar Vacante</a>
+        {{/if}}
+    </header>
+    <div class="contenido-principal contenedor">
+        {{{body}}}
+    </div>
+
+    <script src="/js/trix.js"></script>
+    <script src="/dist/bundle.js"></script>
 </body>
+
 </html>

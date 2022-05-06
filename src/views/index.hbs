@@ -1,1 +1,44 @@
-<h1>Index handlebars</h1>
+<main class="lista-vacante">
+  <h2>
+    Lista de vacantes
+  </h2>
+  {{#if vacantes.length}}
+    {{#each vacantes}}
+      <div class="vacante">
+        <div class="caja">
+          <h3>
+            {{company}}
+          </h3>
+          <p class="puesto">
+            {{title}}
+          </p>
+        </div>
+        <div class="caja">
+          <p class="etiqueta">
+            Ubicación
+          </p>
+          <p class="nombre">
+            {{location}}
+          </p>
+        </div>
+        <div class="caja">
+          <p class="etiqueta">
+            Contrato
+          </p>
+          <p class="nombre contrato">
+            {{contract}}
+          </p>
+        </div>
+        <div class="caja centrar-vertical">
+          <a href="/vacantes/{{url}}" class="btn btn-verde">
+            +info
+          </a>
+        </div>
+      </div>
+    {{/each}}
+  {{else}}
+    <div>
+      No hay vacantes disponibles
+    </div>
+  {{/if}}
+</main>
